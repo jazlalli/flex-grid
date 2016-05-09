@@ -1,0 +1,55 @@
+@import '_variables';
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto !important;
+}
+ul {
+  list-style-type: none;
+}
+p.ad {
+  background-color: yellow;
+  margin: 5px auto;
+}
+.flex-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid green;
+}
+
+@media #{$breakpoint-medium} {
+  .flex-container {
+    max-width: $grid-max-width;
+  }
+
+  .content {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @for $i from 1 through $grid-columns - 1 {
+    .column-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+
+[class*='column-'] {
+  min-height: 1px;
+  padding: 0.5em;
+  border: 1px solid salmon;
+}
